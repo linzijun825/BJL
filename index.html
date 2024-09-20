@@ -1,31 +1,33 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>百家樂遊戲</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>網頁百家樂博弈</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>百家樂遊戲</h1>
+  <h1>網頁百家樂博弈</h1>
 
-    <!-- 登錄表單 -->
-    <form id="loginForm">
-        <input type="text" id="username" placeholder="用戶名" required>
-        <input type="password" id="password" placeholder="密碼" required>
-        <button type="submit">登錄</button>
-    </form>
-
-    <!-- 遊戲容器，默認隱藏 -->
-    <div id="gameContainer">
-        <h2>歡迎進入遊戲！</h2>
-        <!-- 撲克牌容器 -->
-        <div class="card">
-            <div class="front">A</div>
-            <div class="back">撲克牌背面</div>
-        </div>
+  <div id="game">
+    <div id="balance">玩家餘額：<span id="playerBalance">1000</span></div>
+    <div id="betting">
+      <button onclick="placeBet('player')">下注閒家</button>
+      <button onclick="placeBet('banker')">下注莊家</button>
+      <button onclick="placeBet('tie')">下注和局</button>
     </div>
+    <div id="cards">
+      <div id="playerHand">閒家牌組: <span id="playerCards"></span></div>
+      <div id="bankerHand">莊家牌組: <span id="bankerCards"></span></div>
+    </div>
+    <button id="dealCards" onclick="deal()">發牌</button>
+    <div id="result"></div>
+    <div id="history">
+      <h2>歷史紀錄</h2>
+      <ul id="historyList"></ul>
+    </div>
+  </div>
 
-    <script src="game.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
